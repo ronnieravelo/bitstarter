@@ -4,10 +4,10 @@ app.use(express.logger());
 
 var fs = require('fs');
 var rbuf = fs.readFileSync("index.html");
-var jstr = JSON.stringify(rbuf); 
+var jstr = rbuf.toString() 
 
 app.get('/', function(request, response) {
-  response.send('Hello World 2!' + jstr);
+  response.send(jstr);
 });
 
 var port = process.env.PORT || 5000;
